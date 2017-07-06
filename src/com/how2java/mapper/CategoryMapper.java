@@ -17,5 +17,7 @@ public interface CategoryMapper {
     public List<Category> list();
      
     public int count();  
+    
+    public List<Category> listByName(String name);
      
 }

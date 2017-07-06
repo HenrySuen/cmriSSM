@@ -46,4 +46,10 @@ public class CategoryServiceImpl implements CategoryService {
 		categoryMapper.update(category);
 	}
 
+	@Override
+	public List<Category> listByName(String name) {
+		// TODO Auto-generated method stub
+		return categoryMapper.listByName(name);
+	}
+
 }

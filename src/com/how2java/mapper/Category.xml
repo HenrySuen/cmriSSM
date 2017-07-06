@@ -22,4 +22,7 @@
         <select id="list" resultType="Category">
             select * from   category_      
         </select>     
+        <select id="listByName" resultType="Category" parameterType="java.lang.String">
+        	select * from category_ where name like concat('%', #{name}, '%')
+        </select>
     </mapper>

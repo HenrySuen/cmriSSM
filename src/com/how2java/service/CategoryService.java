@@ -14,4 +14,6 @@ public interface CategoryService {
 	 Category preUpdate(String id);
 	 
 	 void update(Category category);
+	 
+	 List<Category> listByName(String name);
 }

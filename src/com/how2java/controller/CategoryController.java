@@ -68,4 +68,12 @@ public class CategoryController {
 		 categoryService.update(category);
 		 return new ModelAndView("redirect:/listCategory");
 	 }
+	 
+	 @RequestMapping("/listByName")
+	 public ModelAndView listByName(@RequestParam("name") String name){
+		 ModelAndView mAv = new ModelAndView();
+		 mAv.addObject("categories", categoryService.listByName(name));
+		 mAv.setViewName("listCategory");
+		 return mAv;
+	 }
 }
