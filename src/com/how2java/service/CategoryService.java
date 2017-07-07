@@ -11,11 +11,13 @@ public interface CategoryService {
 	 
 	 void add(Category category);
 	 
-	 Category preUpdate(String id);
+	 List<Category> preUpdate(String id);
 	 
 	 void update(Category category);
 	 
 	 Category listByName(String name);
 	 
 	 Category listProductByCatId(String id);
+	 
+	 List<Category> get(String id);
 }

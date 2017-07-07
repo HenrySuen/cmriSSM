@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.how2java.mapper.ProductMapper">
+    <resultMap type="Product" id="productBean">
+        <id column="pid" property="id" />
+        <result column="pname" property="name" />
+        <result column="price" property="price" />
+     
+        <!-- 多对一的关系 -->
+        <!-- property: 指的是属性名称, javaType：指的是属性的类型 -->
+        <association property="category" javaType="Category">
+            <id column="cid" property="id"/>
+            <result column="cname" property="name"/>
+        </association>
+    </resultMap>
+     
+    <!-- 根据id查询Person, 关联将Orders查询出来 -->
+    <select id="listProducts" resultMap="productBean">
+        select c.*, p.*, c.id 'cid', p.id 'pid', c.name 'cname', p.name 'pname' from category_ c left join product_ p on c.id = p.cid
+    </select>  
+    
+    <delete id="deleteProduct" parameterType="java.lang.String">
+    	DELETE FROM product_ WHERE id = #{id}
+    </delete>  
+    
+    <update id="updateProduct" parameterType="Product">
+    	UPDATE product_ SET `name` = #{name}, price = #{price}, cid = #{cid} WHERE id = #{id}
+    </update>
+    
+    <insert id="addProduct">
+    	INSERT INTO product_ (`name`, price, cid) VALUES (#{name}, #{price}, #{cid})
+    </insert>
+</mapper>

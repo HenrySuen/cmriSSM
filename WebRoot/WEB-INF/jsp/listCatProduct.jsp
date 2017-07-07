@@ -10,7 +10,7 @@
         <td>price</td>
         <td>manipulate</td>
     </tr>
-    <a href="${path}/listCategory">categories</a>>${cat.name}><a href="${path}/toAddProduct?id=">addProduct</a><br>
+    <a href="${path}/listCategory">categories</a>>${cat.name}><a href="${path}/toAddProduct?cid=${cat.id}">addProduct</a><br>
     <div align='center' border='1' cellspacing='0'>
    <form action="${path}/listByName" method="post">
 		<input type="text" placeholder="product name ..." name="name">

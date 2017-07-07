@@ -43,9 +43,10 @@ public class CategoryController {
 	 }
 	 
 	 @RequestMapping("/addCategory")
-	 public ModelAndView addCategory(@RequestParam("name") String name){
-		 Category category = new Category();
-		 category.setName(name);
+	 public ModelAndView addCategory(Category category){
+		 // Spring MVC 会用反射自己生成model??天呐
+//		 Category category = new Category();
+//		 category.setName(name);
 		 categoryService.add(category);
 		 ModelAndView mAv = new ModelAndView("redirect:/listCategory");
 		 return mAv;
@@ -60,11 +61,10 @@ public class CategoryController {
 	 }
 	 
 	 @RequestMapping("/updateCategory")
-	 public ModelAndView updateCategory(@RequestParam("id") String id, 
-			 @RequestParam("name") String name){
-		 Category category = new Category();
-		 category.setId(Integer.parseInt(id));
-		 category.setName(name);
+	 public ModelAndView updateCategory(Category category){
+//		 Category category = new Category();
+//		 category.setId(Integer.parseInt(id));
+//		 category.setName(name);
 		 categoryService.update(category);
 		 return new ModelAndView("redirect:/listCategory");
 	 }

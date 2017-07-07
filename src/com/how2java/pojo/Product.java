@@ -5,6 +5,7 @@ public class Product {
 	private int id;
     private String name;
     private float price;
+    private Category category;
     public int getId() {
         return id;
     }
@@ -23,7 +24,14 @@ public class Product {
     public void setPrice(float price) {
         this.price = price;
     }
-    @Override
+    
+    public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+	@Override
     public String toString() {
         return "Product [id=" + id + ", name=" + name + ", price=" + price + "]";
     }

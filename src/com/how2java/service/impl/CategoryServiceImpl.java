@@ -35,12 +35,6 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	@Override
-	public Category preUpdate(String id) {
-		// TODO Auto-generated method stub
-		return categoryMapper.get(id);
-	}
-
-	@Override
 	public void update(Category category) {
 		// TODO Auto-generated method stub
 		categoryMapper.update(category);
@@ -56,6 +50,18 @@ public class CategoryServiceImpl implements CategoryService {
 	public Category listProductByCatId(String id) {
 		// TODO Auto-generated method stub
 		return categoryMapper.listCatProduct(id);
+	}
+
+	@Override
+	public List<Category> preUpdate(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Category> get(String id) {
+		// TODO Auto-generated method stub
+		return categoryMapper.get(id);
 	}
 
 }
