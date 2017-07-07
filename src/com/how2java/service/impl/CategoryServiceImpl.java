@@ -47,9 +47,15 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	@Override
-	public List<Category> listByName(String name) {
+	public Category listByName(String name) {
 		// TODO Auto-generated method stub
 		return categoryMapper.listByName(name);
+	}
+
+	@Override
+	public Category listProductByCatId(String id) {
+		// TODO Auto-generated method stub
+		return categoryMapper.listCatProduct(id);
 	}
 
 }

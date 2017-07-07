@@ -18,6 +18,8 @@ public interface CategoryMapper {
      
     public int count();  
     
-    public List<Category> listByName(String name);
-     
+    public Category listByName(String name);
+    
+    public Category listCatProduct(String id);
+		
 }

@@ -76,4 +76,13 @@ public class CategoryController {
 		 mAv.setViewName("listCategory");
 		 return mAv;
 	 }
+	 
+	 @RequestMapping("/listCatProduct")
+	 public ModelAndView listCatProduct(@RequestParam("id") String id){
+		 ModelAndView mAv = new ModelAndView("listCatProduct");
+		 mAv.addObject("cat", categoryService.listProductByCatId(id));
+		 // 要get一下放在model里？？
+		 mAv.addObject("products", categoryService.listProductByCatId(id).getProducts());
+		 return mAv;
+	 }
 }

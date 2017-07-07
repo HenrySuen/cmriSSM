@@ -15,5 +15,7 @@ public interface CategoryService {
 	 
 	 void update(Category category);
 	 
-	 List<Category> listByName(String name);
+	 Category listByName(String name);
+	 
+	 Category listProductByCatId(String id);
 }

@@ -7,21 +7,23 @@
     <tr>
         <td>id</td>
         <td>name</td>
+        <td>price</td>
         <td>manipulate</td>
     </tr>
-    <a href="${path}/toAddCat">addCategory</a><br>
+    <a href="${path}/listCategory">categories</a>>${cat.name}><a href="${path}/toAddProduct?id=">addProduct</a><br>
     <div align='center' border='1' cellspacing='0'>
    <form action="${path}/listByName" method="post">
-		<input type="text" placeholder="category name ..." name="name">
+		<input type="text" placeholder="product name ..." name="name">
 		<input type="submit" value="search">
 	</form>
 	</div>
 	<br>
-    <c:forEach items="${categories}" var="cat" varStatus="st">
+    <c:forEach items="${products}" var="product" varStatus="st">
         <tr>
-            <td><a href="${path}/listCatProduct?id=${cat.id}">${cat.id}</a></td>
-            <td>${cat.name}</td>
-            <td><a href="${path}/deleteCat?id=${cat.id}">delete</a>&nbsp;&nbsp;<a href="${path}/toUpCat?id=${cat.id}">update</a></td>
+            <td>${product.id}</td>
+            <td>${product.name}</td>
+            <td>${product.price}</td>
+            <td><a href="${path}/deleteProduct?id=${product.id}">delete</a>&nbsp;&nbsp;<a href="${path}/toUpProduct?id=${product.id}">update</a></td>
         </tr>
     </c:forEach>
 </table>

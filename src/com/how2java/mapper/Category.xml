@@ -4,6 +4,22 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
     <mapper namespace="com.how2java.mapper.CategoryMapper">
+    	<!-- 一对多映射：【resultMap标签】配置一个类似返回类型的东西，这里是指返回的一的那一方目录  -->
+        <resultMap type="Category" id="categoryBean">
+        	<!-- 【id标签】 也就是返回结果的主键 -->
+            <id column="cid" property="id" />
+            <!-- 【result标签】 也就是其他列 这里的column以查询的返回结果为准！！-->
+            <result column="cname" property="name" />
+     
+            <!-- 一对多的关系 【collection标签】 也就是返回内容里的多的那一方的结果集商品们-->
+            <!-- property: 指的是集合属性的值, ofType：指的是集合中元素的类型 -->
+            <collection property="products" ofType="com.how2java.pojo.Product">
+                <id column="pid" property="id" />
+                <result column="pname" property="name" />
+                <result column="price" property="price" />
+            </collection>
+        </resultMap>
+        
         <insert id="add" parameterType="Category" >
             insert into category_ ( name ) values (#{name})    
         </insert>
@@ -24,5 +40,10 @@
         </select>     
         <select id="listByName" resultType="Category" parameterType="java.lang.String">
         	select * from category_ where name like concat('%', #{name}, '%')
+        </select>
+        
+        <!-- resultType 是已有的类型 resultMap是配置出来的类型 -->
+        <select id="listCatProduct" resultMap="categoryBean" parameterType="java.lang.String">
+        	SELECT cat.id AS cid, cat.`name` AS cname, pro.id AS pid, pro.`name` AS pname, pro.price AS price FROM category_ cat LEFT JOIN product_ pro ON cat.id = pro.cid WHERE cat.id = #{id}
         </select>
     </mapper>

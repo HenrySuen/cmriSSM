@@ -45,5 +45,6 @@
 	<classpathentry kind="lib" path="C:/Henry/ssm/web/WEB-INF/lib/spring-tx-3.2.16.RELEASE.jar"/>
 	<classpathentry kind="lib" path="C:/Henry/ssm/web/WEB-INF/lib/spring-web-3.2.16.RELEASE.jar"/>
 	<classpathentry kind="lib" path="C:/Henry/ssm/web/WEB-INF/lib/spring-webmvc-3.2.16.RELEASE.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/log4j-1.2.17.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>
